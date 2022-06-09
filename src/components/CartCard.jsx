@@ -1,6 +1,5 @@
 import { useCart } from "../Contexts/CartContext";
 import { AddToCartButton } from ".";
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 
 function CartCard({ product, showActionButtons = true }) {
   const { companyName, name, price, img, MRP, discount, quantity } = product;
@@ -12,19 +11,21 @@ function CartCard({ product, showActionButtons = true }) {
         <img className="w-36" src={img} alt={name} />
         {showActionButtons && (
           <span className="flex flex-row gap-0 items-center self-center justify-center">
-            <AiOutlinePlusCircle
-              className="text-3xl bg-white p-1 rounded-full cursor-pointer"
+            <button
+              className="text-3xl bg-white cursor-pointer"
               onClick={() =>
                 cartDispatch({
                   type: "INCREASE_QUANTITY",
                   payload: { product },
                 })
               }
-            />
+            >
+              +
+            </button>
             <p className="w-16 flex items-center justify-center bg-white p-1.5 border border-gray-400 border-solid cursor-pointer ">
               {quantity}
             </p>
-            <AiOutlineMinusCircle
+            <button
               className={`text-3xl bg-white p-1 rounded-full ${
                 quantity <= 1 && "cursor-not-allowed text-gray-500"
               }`}
@@ -37,7 +38,9 @@ function CartCard({ product, showActionButtons = true }) {
                   payload: { product },
                 });
               }}
-            />
+            >
+              -
+            </button>
           </span>
         )}
       </div>
