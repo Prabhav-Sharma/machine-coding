@@ -5,7 +5,6 @@ import { useCart } from "../Contexts/CartContext";
 function Cart() {
   const {
     cartState: { items, quantity, value, saveForLater },
-    cartDispatch,
   } = useCart();
 
   return (
