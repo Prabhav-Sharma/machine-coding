@@ -1,6 +1,6 @@
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 import { useCart } from "../Contexts/CartContext";
 import { AddToCartButton } from ".";
+import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 
 function CartCard({ product, showActionButtons = true }) {
   const { companyName, name, price, img, MRP, discount, quantity } = product;
